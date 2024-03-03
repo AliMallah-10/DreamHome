@@ -10,6 +10,8 @@ const path = require("path");
 const homePropertyRoutes = require("./routes/homepropertyRoutes");
 const userRoutes = require("./routes/userRoutes");
 const transactionsRoute = require("./routes/transactionsRoutes");
+const agentRoutes = require("./routes/agentRoutes");
+const realestateRoutes = require("./routes/realestateRoutes");
 // Middleware
 app.use(
   cors({
@@ -33,7 +35,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use user routes
 app.use("/homeProperty", homePropertyRoutes);
 app.use("/users", userRoutes);
-app.use("/transaction", transactionsRoute)
+app.use("/transaction", transactionsRoute);
+app.use("/agents", agentRoutes);
+app.use("/realestate", realestateRoutes);
 app.use("/uploads", express.static("uploads"));
 
 // Access environment variables
