@@ -15,7 +15,7 @@ const realestateSchema = new Schema(
     },
     kind: {
       type: String,
-      enum: ["buy", "sell"],
+      enum: ["sell"],
       required: true,
     },
     images: [
@@ -28,14 +28,24 @@ const realestateSchema = new Schema(
       required: true,
     },
     user: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+      required: true,
+    },
+    userAgent: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Agent",
       required: true,
     },
     amount: {
       type: Number,
       required: true,
       min: 0,
+    },
+    description: {
+      // Adding the description field
+      type: String,
+      required: true,
     },
   },
   {

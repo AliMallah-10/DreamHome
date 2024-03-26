@@ -1,0 +1,207 @@
+:root {
+  --dark-green: #0b7700;
+  --darker-green: #0c7a00;
+  --dark-forest: #062702;
+  --darker-forest: #062802;
+  --dark-olive: #074900;
+  --forest-green: #003f1f;
+  --deep-forest: #022312;
+  --darker-forest-green: #012211;
+  --teal: #006833;
+  --darker-teal: #006632;
+  --leaf-green: #3b8200;
+  --darker-leaf-green: #3c8400;
+  --dark-fir: #142b02;
+  --darker-fir: #152c02;
+  --greenish-brown: #245000;
+  --true-green: #006800;
+  --bright-green: #008d00;
+  --color-green-me: #00a716;
+  --yellow-green: rgb(31, 129, 48);
+}
+
+/* ! delete form-------------------------------- */
+/* The Modal (background) */
+.modalC {
+  position: fixed; /* Stay in place */
+  z-index: 99999; /* Sit on top */
+  left: 0;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  text-align: center;
+}
+
+/* Modal Content/Box */
+.modal-contentC {
+  background-color: var(--color-green-me);
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 2px solid var(--deep-forest);
+  width: 30%; /* Could be more or less, depending on screen size */
+  border-radius: 30px;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.confD {
+  margin: 20px;
+}
+.confD i {
+  color: rgb(114, 1, 30);
+  font-size: 35px;
+  /* margin: 10px !important; */
+}
+.confD p {
+  font-size: 20px;
+  margin: 20px;
+}
+
+.submit,
+.Cancelbtn {
+  border: none;
+  outline: none;
+  background-color: var(--color-green-me) !important;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: 0.3s ease;
+  padding: 12px;
+  margin-right: 10px;
+}
+.Cancelbtn {
+  background-color: var(--deep-forest) !important;
+}
+.submit:hover {
+  color: brown;
+}
+/* ! loader ------------------------------------------- */
+.loadS {
+  display: flex !important;
+  justify-content: center !important;  /* Center horizontally */
+  align-items: center !important; /* Center vertically */
+  text-align: center !important;
+  margin-top:50px ;
+  height: 100% !important; /* Set height to fill parent container */
+}
+.spinner {
+  position: absolute !important;
+  width: 9px;
+  height: 9px;
+}
+
+.spinner div {
+  position: absolute !important;
+  width: 50% !important;
+  height: 150% !important;
+  background: var(--color-green-me);
+  transform: rotate(calc(var(--rotation) * 1deg))
+    translate(0, calc(var(--translation) * 1%));
+  animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;
+}
+
+.spinner div:nth-child(1) {
+  --delay: 0.1;
+  --rotation: 36;
+  --translation: 150;
+}
+
+.spinner div:nth-child(2) {
+  --delay: 0.2;
+  --rotation: 72;
+  --translation: 150;
+}
+
+.spinner div:nth-child(3) {
+  --delay: 0.3;
+  --rotation: 108;
+  --translation: 150;
+}
+
+.spinner div:nth-child(4) {
+  --delay: 0.4;
+  --rotation: 144;
+  --translation: 150;
+}
+
+.spinner div:nth-child(5) {
+  --delay: 0.5;
+  --rotation: 180;
+  --translation: 150;
+}
+
+.spinner div:nth-child(6) {
+  --delay: 0.6;
+  --rotation: 216;
+  --translation: 150;
+}
+
+.spinner div:nth-child(7) {
+  --delay: 0.7;
+  --rotation: 252;
+  --translation: 150;
+}
+
+.spinner div:nth-child(8) {
+  --delay: 0.8;
+  --rotation: 288;
+  --translation: 150;
+}
+
+.spinner div:nth-child(9) {
+  --delay: 0.9;
+  --rotation: 324;
+  --translation: 150;
+}
+
+.spinner div:nth-child(10) {
+  --delay: 1;
+  --rotation: 360;
+  --translation: 150;
+}
+
+@keyframes spinner-fzua35 {
+  0%,
+  10%,
+  20%,
+  30%,
+  50%,
+  60%,
+  70%,
+  80%,
+  90%,
+  100% {
+    transform: rotate(calc(var(--rotation) * 1deg))
+      translate(0, calc(var(--translation) * 1%));
+  }
+
+  50% {
+    transform: rotate(calc(var(--rotation) * 1deg))
+      translate(0, calc(var(--translation) * 1.5%));
+  }
+}

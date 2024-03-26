@@ -152,7 +152,32 @@ const agentController = {
       res.status(500).json({ message: error.message });
     }
   },
-
+  // // Get agent by reference ID
+  // getAgentByReferenceId: async (req, res) => {
+  //   try {
+  //     const agent = await Agent.findOne({ reference: req.params.referenceId });
+  //     if (!agent) {
+  //       return res.status(404).json({ message: "Agent not found" });
+  //     }
+  //     res.json(agent);
+  //   } catch (error) {
+  //     res.status(500).json({ message: error.message });
+  //   }
+  // },
+  // Get agent by reference ID
+  getAgentByReferenceId: async (req, res) => {
+    try {
+      const agent = await Agent.findOne({
+        reference: req.params.referenceId,
+      });
+      if (!agent) {
+        return res.status(404).json({ message: "Agent not found" });
+      }
+      res.json(agent);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
   // Delete an agent
   deleteAgent: async (req, res) => {
     try {

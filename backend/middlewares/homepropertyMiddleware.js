@@ -21,8 +21,39 @@ const loggingMiddleware = (req, res, next) => {
   // Call next() to proceed to the next middleware
   next();
 };
+const validateHouseData = (req, res, next) => {
+  const requiredFields = [
+    "title",
+    "style",
+    "location",
+    "price",
+    "type",
+    "rooms",
+    "buildYear",
+    "areaSize",
+    "floor",
+    "description",
+    "image",
+  ];
+
+  // Check if all required fields are present in the request body
+  const missingFields = requiredFields.filter((field) => !req.body[field]);
+
+  if (missingFields.length > 0) {
+    return res
+      .status(400)
+      .json({ error: "All fields are required" });
+  }
+
+  // If all required fields are present, proceed to the next middleware
+  next();
+};
+
+
+
 module.exports = {
   validationMiddleware,
   errorHandlingMiddleware,
   loggingMiddleware,
+  validateHouseData
 };

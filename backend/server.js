@@ -4,14 +4,14 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const dbConnect = require("./config/config");
-const path = require("path");
 
 // Import user routes
 const homePropertyRoutes = require("./routes/homepropertyRoutes");
 const userRoutes = require("./routes/userRoutes");
-const transactionsRoute = require("./routes/transactionsRoutes");
+
 const agentRoutes = require("./routes/agentRoutes");
 const realestateRoutes = require("./routes/realestateRoutes");
+const usersPaid = require("./routes/PayUsersRoutes");
 // Middleware
 app.use(
   cors({
@@ -19,11 +19,7 @@ app.use(
     credentials: true,
   })
 );
-// Set 'views' as the folder containing your views
-app.set("../backend/views", path.join(__dirname, "../backend/views"));
 
-// Set EJS as the view engine
-app.set("view engine", "ejs");
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -35,9 +31,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use user routes
 app.use("/homeProperty", homePropertyRoutes);
 app.use("/users", userRoutes);
-app.use("/transaction", transactionsRoute);
+
 app.use("/agents", agentRoutes);
 app.use("/realestate", realestateRoutes);
+app.use("/paidUser", usersPaid);
 app.use("/uploads", express.static("uploads"));
 
 // Access environment variables

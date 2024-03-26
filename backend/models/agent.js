@@ -44,8 +44,18 @@ const agentSchema = new mongoose.Schema(
     },
 
     reference: {
-      type: String, // You can change the type according to your requirements
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
       required: true,
+      validate: {
+        validator: async function (value) {
+          const user = await mongoose
+            .model("User")
+            .findOne({ _id: value, role: "agent" });
+          return !!user;
+        },
+        message: (props) => `${props.value} is not a valid agent user!`,
+      },
     },
   },
   {

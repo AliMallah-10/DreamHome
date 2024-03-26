@@ -22,30 +22,14 @@ router.post("/refresh-token", userController.refreshToken);
 router.post("/forget-password", userController.forgetPassword);
 // Reset Password Routes
 // This route renders the password reset form
-router.get("/reset-password/:userId/:token", (req, res) => {
-  const userId = req.params.userId;
-  const token = req.params.token;
-
-  ejs.renderFile(
-    path.join(__dirname, "../views/reset-password.html"),
-    { userId, token },
-    (err, data) => {
-      if (err) {
-        console.error(err);
-        res.status(500).send("Internal Server Error");
-      } else {
-        res.send(data);
-      }
-    }
-  );
-});
+router.get("/reset-password/:userId/:token");
 // This route handles the password reset form submission
 router.post(
   "/reset-password/:userId/:token",
   userMiddleware.validateResetPassword,
   userController.resetPassword
 );
-// router.use(userMiddleware.verifyToken);
+router.use(userMiddleware.verifyToken);
 // Logout route
 router.post("/logout", userController.logoutUser);
 //  Get all users (admin only)

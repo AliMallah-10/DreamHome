@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-
+const Joi = require("joi");
+const { validationResult } = require("express-validator");
 // Middleware to verify the JWT token
 const verifyToken = (req, res, next) => {
   const authorizationHeader = req.header("Authorization");

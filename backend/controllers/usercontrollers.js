@@ -501,6 +501,7 @@ exports.loginUser = async (req, res) => {
       message: "Login successfully",
       accessToken,
       refreshToken,
+      id: user._id,
       role: user.role,
       email,
       username: user.username,
@@ -555,7 +556,7 @@ exports.registerUser = async (req, res) => {
     // Set default role (e.g., "user")
     const defaultRole = "user";
     const newUser = new User({
-      role: defaultRole,
+      role: role || defaultRole,
       username,
       password: hashedPassword,
       email,
@@ -592,12 +593,10 @@ exports.getUserById = async (req, res) => {
     }
 
     res.status(200).json({
-      user: {
-        _id: user._id,
-        role: user.role,
-        username: user.username,
-        email: user.email,
-      },
+      _id: user._id,
+      role: user.role,
+      username: user.username,
+      email: user.email,
     });
   } catch (error) {
     console.error(error);

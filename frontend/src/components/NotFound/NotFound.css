@@ -1,0 +1,132 @@
+/* root.css */
+
+:root {
+  --dark-green: #0b7700;
+  --darker-green: #0c7a00;
+  --dark-forest: #062702;
+  --darker-forest: #062802;
+  --dark-olive: #074900;
+  --forest-green: #003f1f;
+  --deep-forest: #022312;
+  --darker-forest-green: #012211;
+  --teal: #006833;
+  --darker-teal: #006632;
+  --leaf-green: #3b8200;
+  --darker-leaf-green: #3c8400;
+  --dark-fir: #142b02;
+  --darker-fir: #152c02;
+  --greenish-brown: #245000;
+  --true-green: #006800;
+  --bright-green: #008d00;
+  --color-green-me: #00a716;
+}
+
+
+.fgg {
+  background: radial-gradient(
+      circle,
+      var(--teal),
+      /* Use slate color from root */ var(--forest-green) 30%,
+      /* Use charcoal color from root */ rgba(88, 84, 84, 0.226) 0%
+    ),
+    radial-gradient(
+      circle at 40px 40px,
+      var(--teal),
+      /* Use cobalt color from root */ var(--forest-green) 30%,
+      /* Use charcoal color from root */ rgba(88, 84, 84, 0) 0%
+    ),
+    radial-gradient(
+      circle at 600px 200px,
+      var(--teal),
+      /* Use cobalt color from root */ var(--forest-green) 10%,
+      /* Use charcoal color from root */ rgba(88, 84, 84, 0) 0%
+    ),
+    radial-gradient(
+      circle at 800px 100px,
+      var(--teal),
+      /* Use cobalt color from root */ var(--forest-green) 10%,
+      /* Use charcoal color from root */ rgba(88, 84, 84, 0) 0%
+    ),
+    radial-gradient(
+      circle at 700px 500px,
+      var(--teal),
+      /* Use cobalt color from root */ var(--forest-green) 2%,
+      /* Use charcoal color from root */ rgba(88, 84, 84, 0.123) 0%
+    ),
+    radial-gradient(
+      circle at 200px 400px,
+      var(--teal),
+      /* Use cobalt color from root */ var(--forest-green) 1%,
+      /* Use charcoal color from root */ rgba(88, 84, 84, 0) 0%
+    ),
+    radial-gradient(
+      circle at 300px 700px,
+      var(--teal),
+      /* Use cobalt color from root */ var(--forest-green) 15%,
+      /* Use charcoal color from root */ rgba(88, 84, 84, 0) 0%
+    ),
+    radial-gradient(
+      circle at 900px 500px,
+      var(--teal),
+      /* Use cobalt color from root */ var(--forest-green) 20%,
+      /* Use charcoal color from root */ rgba(88, 84, 84, 0) 0%
+    ),
+    radial-gradient(
+      circle at 650px 400px,
+      var(--teal),
+      /* Use cobalt color from root */ var(--forest-green) 10%,
+      /* Use charcoal color from root */ rgba(88, 84, 84, 0) 0%
+    ),
+    radial-gradient(
+      circle at 600px 600px,
+      var(--teal),
+      /* Use cobalt color from root */ var(--darker-green) 0%
+    );
+}
+
+.btnBAck {
+  --color1: var(--true-green); /* Using blue-dark as the first color */
+  --color2: var(--color-green-me); /* Using navy-blue as the second color */
+  perspective: 1000px;
+  padding: 1em 1em;
+  background: linear-gradient(var(--color1), var(--color2));
+  border: none;
+  outline: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #fff;
+  text-shadow: 0 10px 10px #000;
+  cursor: pointer;
+  transform: rotateX(70deg) rotateZ(30deg);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.btnBAck::before {
+  content: "";
+  width: 100%;
+  height: 15px;
+  background-color: var(--color2);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+}
+
+.btnBAck::after {
+  content: "";
+  width: 15px;
+  height: 100%;
+  background-color: var(--color1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: rotateY(-90deg);
+  transform-origin: right;
+}
+
+.btnBAck:hover {
+  transform: rotateX(30deg) rotateZ(0);
+}

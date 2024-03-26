@@ -50,7 +50,10 @@ const realEstateController = {
   // Get all real estate entries
   getAll: async (req, res) => {
     try {
-      const realEstates = await RealEstate.find();
+      const realEstates = await RealEstate.find().populate({
+        path: "userAgent",
+        select: "fullName email phone", // Specify the fields you want to select
+      });
       res.status(200).json(realEstates);
     } catch (error) {
       res.status(500).json({ message: error.message });
@@ -60,11 +63,28 @@ const realEstateController = {
   // Get a single real estate entry by ID
   getById: async (req, res) => {
     try {
-      const realEstate = await RealEstate.findById(req.params.id);
+      const realEstate = await RealEstate.findById(req.params.id).populate({
+        path: "userAgent",
+        select: "fullName email phone", // Specify the fields you want to select
+      });
       if (!realEstate) {
         return res.status(404).json({ message: "Real estate not found" });
       }
       res.status(200).json(realEstate);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+  // Get all real estate entries by userAgent
+  getAllByAgent: async (req, res) => {
+    try {
+      const realEstates = await RealEstate.find({
+        userAgent: req.params.agentId,
+      }).populate({
+        path: "userAgent",
+        select: "fullName email phone", // Specify the fields you want to select
+      });
+      res.status(200).json(realEstates);
     } catch (error) {
       res.status(500).json({ message: error.message });
     }

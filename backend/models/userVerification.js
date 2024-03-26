@@ -1,12 +1,10 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
-
-
 const userVerificationSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',  // Reference to the User model
+    ref: "User", // Reference to the User model
     required: true,
   },
   uniqueString: {
@@ -24,7 +22,9 @@ const userVerificationSchema = new mongoose.Schema({
   },
 });
 
-const UserVerification = mongoose.model("UserVerification", userVerificationSchema);
+const UserVerification = mongoose.model(
+  "UserVerification",
+  userVerificationSchema
+);
 
 module.exports = UserVerification;
-

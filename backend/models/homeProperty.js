@@ -16,13 +16,14 @@ const homePropertySchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      enum: ["sell", "buy", "rent"],
+      enum: ["sell", "rent", "buy"],
       required: true,
     },
-    image: {
-      type: String,
-      required: true,
-    },
+    image: [
+      {
+        type: String, // Assuming image URLs are stored as strings
+      },
+    ],
     rooms: {
       type: Number,
       required: true,
@@ -51,6 +52,11 @@ const homePropertySchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       // required: true,
+    },
+    Agent: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Agent",
+      required: true,
     },
   },
   {
