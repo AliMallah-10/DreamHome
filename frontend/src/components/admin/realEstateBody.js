@@ -25,6 +25,7 @@ function RealEstate() {
     kind: "",
     description: "",
     user: "",
+    userAgent: "",
     images: [],
   });
 
@@ -117,6 +118,7 @@ function RealEstate() {
       !newHouseData.place ||
       !newHouseData.description ||
       !newHouseData.user ||
+      !newHouseData.userAgent ||
       !newHouseData.images.length
     ) {
       // Display error message if any required fields are missing
@@ -259,7 +261,7 @@ function RealEstate() {
               key={index}
               className="bg-[#022312] rounded-3xl text-neutral-300 p-4 flex flex-col items-start justify-center gap-3 hover:bg-gray-900 hover:shadow-2xl hover:shadow-green-400 transition-shadow"
             >
-              <div className="w-full h-40 bg-sky-300 rounded-2xl">
+              <div className="w-full h-40 bg-green-600 rounded-2xl">
                 {realestate.images[0] && (
                   <img
                     src={`http://localhost:3000/${realestate.images[0].replace(
@@ -311,9 +313,9 @@ function RealEstate() {
                       Agent:
                     </label>
                     <select
-                      name="Agent"
+                      name="userAgent"
                       className="w-full px-4 py-2.5 rounded border"
-                      value={newHouseData.Agent}
+                      value={newHouseData.userAgent}
                       onChange={handleNewHouseChange}
                       required
                     >
@@ -337,11 +339,13 @@ function RealEstate() {
                       required
                     >
                       <option value="">Choose User</option>
-                      {users.map((user) => (
-                        <option key={user._id} value={user._id}>
-                          {user.username}
-                        </option>
-                      ))}
+                      {users
+                        .filter((user) => user.role === "user")
+                        .map((user) => (
+                          <option key={user._id} value={user._id}>
+                            {user.username}
+                          </option>
+                        ))}
                     </select>
                   </div>
                   <div className="mb-4">

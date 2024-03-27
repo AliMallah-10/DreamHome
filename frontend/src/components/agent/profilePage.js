@@ -5,7 +5,6 @@ import { loginSuccess } from "../../data/action";
 import { message } from "antd";
 import axios from "axios";
 
-
 function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
   const [agent, setAgent] = useState({
@@ -20,7 +19,7 @@ function ProfilePage() {
 
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.userId);
-  
+
   // Define fetchAgentData function
   const fetchAgentData = useCallback(async () => {
     try {
@@ -74,7 +73,7 @@ function ProfilePage() {
   const anyInputEmpty = Object.values(agent).some((value) => value === "");
   useEffect(() => {
     if (anyInputEmpty) {
-      setIsEditing(false);
+      setIsEditing(true);
     }
   }, [anyInputEmpty]);
   // alert(JSON.stringify(userId));
@@ -124,6 +123,7 @@ function ProfilePage() {
   // ! ------------------update agent-----------------------------------------
   const handleSaveChanges = async () => {
     try {
+      // alert(JSON.stringify(userId));
       // Set the reference field to userId
       setAgent((prevAgent) => ({
         ...prevAgent,

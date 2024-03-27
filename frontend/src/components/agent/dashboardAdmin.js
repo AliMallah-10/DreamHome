@@ -62,6 +62,7 @@ function DashboardAgent() {
       message.error(error.response.data.message);
     }
   };
+  // alert(JSON.stringify(userId));
   // Define fetchAgentData function
   const fetchAgentData = useCallback(async () => {
     try {
@@ -76,9 +77,7 @@ function DashboardAgent() {
   }, [userId]);
 
   useEffect(() => {
-    if (userId) {
-      fetchAgentData();
-    }
+    fetchAgentData();
   }, [userId, fetchAgentData]);
   return (
     <body>

@@ -253,7 +253,7 @@ function RealEstate() {
                     key={index}
                     className="bg-[#022312] rounded-3xl text-neutral-300 p-4 flex flex-col items-start justify-center gap-3 hover:bg-gray-900 hover:shadow-2xl hover:shadow-green-400 transition-shadow"
                   >
-                    <div className="w-full h-40 bg-sky-300 rounded-2xl">
+                    <div className="w-full h-40 bg-green-600 rounded-2xl">
                       {realestate.images[0] && (
                         <img
                           src={`http://localhost:3000/${realestate.images[0].replace(
