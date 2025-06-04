@@ -10,7 +10,7 @@ const path = require("path");
 //===================== NodeMailer Starts =============================================================
 // Nodemailer transporter setup
 const transporter = nodemailer.createTransport({
-  service: "outlook",
+  service: "gmail",
   auth: {
     user: process.env.AUTH_EMAIL,
     pass: process.env.AUTH_PASS,
